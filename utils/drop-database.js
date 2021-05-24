@@ -13,4 +13,5 @@ const connection = mysql.createConnection({
     password: DB_PASSWORD,
     port: DB_PORT,
 });
+
 connection.query(`DROP DATABASE ${DB_NAME}`, () => connection.end());
