@@ -20,18 +20,18 @@ describe('create order', () => {
         describe('POST', () => {
             it('creates a new order in the database', async () => {
                 const res = await request(app).post('/order').send({
-                    name: 'Burger',
-                    genre: 'Medium',
+                    food: 'Burger',
+                    spice: 'Medium',
                 });
 
                 expect(res.status).to.equal(201);
 
                 const [[orderEntries]] = await db.query(
-                    `SELECT * FROM FoodOrder WHERE name = 'Burger'`
+                    `SELECT * FROM FoodOrder WHERE food = 'Burger'`
                 );
 
-                expect(orderEntries.name).to.equal('Burger');
-                expect(orderEntries.genre).to.equal('Medium');
+                expect(orderEntries.food).to.equal('Burger');
+                expect(orderEntries.spice).to.equal('Medium');
             });
         });
     });

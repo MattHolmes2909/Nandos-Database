@@ -26,8 +26,8 @@ const setUpDatabase = async () => {
         await db.query(`USE ${DB_NAME}`);
         await db.query(`CREATE TABLE IF NOT EXISTS FoodOrder (
             id INT PRIMARY KEY auto_increment,
-            name VARCHAR(25),
-            genre VARCHAR(25)
+            food VARCHAR(25),
+            spice VARCHAR(25)
         )`);
         db.close();
 

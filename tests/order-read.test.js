@@ -10,15 +10,15 @@ describe('read order', () => {
     beforeEach(async () => {
         db = await getDb();
         await Promise.all([
-            db.query('INSERT INTO FoodOrder (name, genre) VALUES(?, ?)', [
+            db.query('INSERT INTO FoodOrder (food, spice) VALUES(?, ?)', [
                 'Burger',
                 'Medium',
             ]),
-            db.query('INSERT INTO FoodOrder (name, genre) VALUES(?, ?)', [
+            db.query('INSERT INTO FoodOrder (food, spice) VALUES(?, ?)', [
                 'Wings',
                 'Lemon and Herb',
             ]),
-            db.query('INSERT INTO FoodOrder (name, genre) VALUES(?, ?)', [
+            db.query('INSERT INTO FoodOrder (food, spice) VALUES(?, ?)', [
                 '1/2 Chicken',
                 'Extra Hot',
             ]),

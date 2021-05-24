@@ -3,12 +3,12 @@ const { get } = require('../routes/order')
 
 exports.create = async (req, res) => {
     const db = await getDb();
-    const { name, genre } = req.body;
+    const { food, spice } = req.body;
 
     try {
-        await db.query('INSERT INTO FoodOrder (name, genre) VALUES (?, ?)', [
-            name,
-            genre,
+        await db.query('INSERT INTO FoodOrder (food, spice) VALUES (?, ?)', [
+            food,
+            spice,
         ]);
         res.sendStatus(201);
     } catch (err) {
