@@ -12,4 +12,6 @@ router.get('/:orderId', orderController.readById);
 
 router.patch('/:orderId', orderController.update);
 
+router.delete('/:orderId', orderController.delete);
+
 module.exports = router;

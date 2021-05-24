@@ -1,5 +1,5 @@
 const getDb = require('../services/db')
-const { get } = require('../routes/order')
+
 
 exports.create = async (req, res) => {
     const db = await getDb();
@@ -67,3 +67,22 @@ exports.update = async (req, res) => {
 
     db.close();
 };
+
+exports.delete = async (req, res) => {
+    const db = await getDb();
+    const { orderId } = req.params;
+
+    try {
+        const [{ affectedRows }] = await db.query('DELETE FROM FoodOrder WHERE id = ?', [orderId]);
+
+        if (!affectedRows) {
+            res.sendStatus(404);
+        } else {
+            res.status(200).json(affectedRows);
+        }
+    } catch (err) {
+        res.sendStatus(500);
+    }
+
+    db.close();
+}
